@@ -1,0 +1,13 @@
+sourceryCommand: null
+sourceryTemplate: null
+TestingPlaygroundTests:
+  sources:
+    include:
+    - ./TestingPlayground
+  output: ./TestingPlaygroundTests/Mock.generated.swift
+  targets:
+  - TestingPlaygroundTests
+  testable:
+  - TestingPlayground
+  import:
+  - Foundation
