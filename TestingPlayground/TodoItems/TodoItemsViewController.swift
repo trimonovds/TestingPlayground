@@ -32,7 +32,6 @@ class TodoItemsViewController: UIViewController {
         
         token = model.addListener(self)
         updateUI()
-        updateButtonsAvailability()
     }
     
     deinit {
@@ -101,6 +100,7 @@ extension TodoItemsViewController {
     
     private func updateUI() {
         itemsCountLabel.text = "\(model.itemsCount)"
+        updateButtonsAvailability()
     }
     
     private func updateButtonsAvailability() {
@@ -108,7 +108,7 @@ extension TodoItemsViewController {
         removeButton.isEnabled = model.itemsCount > 0
     }
     
-    private func finishItemAddition() {
+    private func resetEditing() {
         itemTextInputField.text = ""
         updateButtonsAvailability()
         view.endEditing(true)
@@ -120,7 +120,7 @@ extension TodoItemsViewController {
     
     @objc private func onAddButtonTouchUpInside() {
         model.addItem(text: itemTextInputField.text!)
-        finishItemAddition()
+        resetEditing()
     }
     
     @objc private func onRemoveButtonTouchUpInside() {
