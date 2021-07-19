@@ -9,7 +9,7 @@ import UIKit
 
 class Button: UIButton {
     
-    public let loadingView = UIActivityIndicatorView()
+    private let loadingView = UIActivityIndicatorView()
     
     public var isLoading: Bool = false {
         didSet {
@@ -22,7 +22,7 @@ class Button: UIButton {
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .systemBlue
+        backgroundColor = .blue
         layer.cornerRadius = 8
         contentEdgeInsets = .init(top: 8, left: 16, bottom: 8, right: 16)
         
