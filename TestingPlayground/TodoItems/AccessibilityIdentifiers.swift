@@ -12,5 +12,6 @@ enum AccessibilityIdentifiers {
         static let addButton = "add_button"
         static let removeButton = "remove_button"
         static let itemsCountLabel = "items_count_label"
+        static let itemTextInputField = "item_text_input_field"
     }
 }

@@ -16,18 +16,31 @@ class TodoItemsUITests: XCTestCase {
         app.launch()
     }
 
-    func testWhenAddItemItemsCountTestIs1() throws {
-        app.buttons[AccessibilityIdentifiers.StartScreen.addButton].tap()
-        XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel].exists)
-        XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel].label == "1")
-    }
-    
-    func testWhenAddSomeItemsAndRemoveAllYouCanSeeZero() throws {
+    func testWhenTypeSomeTextAndAddItemThenVisibleTextIs1() throws {
+        let itemTextInput = app.textFields[AccessibilityIdentifiers.StartScreen.itemTextInputField]
         let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
+        let itemsCountLabel = app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel]
+        itemTextInput.tap()
+        itemTextInput.typeText("Finish iOS course")
         addButton.tap()
-        addButton.tap()
-        app.buttons[AccessibilityIdentifiers.StartScreen.removeButton].tap()
-        XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel].label == "0")
+        XCTAssertTrue(itemsCountLabel.label == "1")
     }
     
+    func testWhenTypeSomeTextAndClearThenAddItemButtonIsDisabled() {
+        let itemTextInput = app.textFields[AccessibilityIdentifiers.StartScreen.itemTextInputField]
+        let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
+        itemTextInput.tap()
+        let inputText = "Asdaasd"
+        itemTextInput.typeText(inputText)
+        itemTextInput.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: inputText.count))
+        XCTAssertFalse(addButton.isEnabled)
+    }
+    
+    func testWhenTypeSomeTextThenAddItemButtonIsEnabled() {
+        let itemTextInput = app.textFields[AccessibilityIdentifiers.StartScreen.itemTextInputField]
+        let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
+        itemTextInput.tap()
+        itemTextInput.typeText("Asdaasd")
+        XCTAssertTrue(addButton.isEnabled)
+    }
 }
