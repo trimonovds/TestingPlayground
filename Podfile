@@ -12,13 +12,4 @@ target 'TestingPlayground' do
     # Pods for testing
     pod 'SwiftyMocky'
   end
-  
-  target 'TestingPlaygroundSnapshotTests' do
-    pod 'SnapshotTesting'
-  end
-
-  target 'TestingPlaygroundUITests' do
-    # Pods for testing
-  end
-
 end

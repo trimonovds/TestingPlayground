@@ -1,24 +1,20 @@
 PODS:
-  - SnapshotTesting (1.9.0)
   - Sourcery (1.0.3)
   - SwiftyMocky (4.0.4):
     - Sourcery (~> 1.0.2)
 
 DEPENDENCIES:
-  - SnapshotTesting
   - SwiftyMocky
 
 SPEC REPOS:
   trunk:
-    - SnapshotTesting
     - Sourcery
     - SwiftyMocky
 
 SPEC CHECKSUMS:
-  SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   Sourcery: 70a6048014bd4f37ea80e6bd4354d47bf3b760e1
   SwiftyMocky: 1fb3ceca9ded134dad4da58a0f20023d7f685ccf
 
-PODFILE CHECKSUM: 32993d3d03e147edb44ed40057945d3e99fbe6ee
+PODFILE CHECKSUM: 991f31cf57293d01aee733910cc206fd88693ca7
 
 COCOAPODS: 1.10.1
