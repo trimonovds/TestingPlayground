@@ -15,13 +15,6 @@
 		871D59FE26A44DEF00FDD9C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871D59FC26A44DEF00FDD9C3 /* Main.storyboard */; };
 		871D5A0026A44DF200FDD9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 871D59FF26A44DF200FDD9C3 /* Assets.xcassets */; };
 		871D5A0326A44DF200FDD9C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871D5A0126A44DF200FDD9C3 /* LaunchScreen.storyboard */; };
-		871D5A0E26A44DF200FDD9C3 /* ManualMockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A0D26A44DF200FDD9C3 /* ManualMockModelTests.swift */; };
-		871D5A3226A4512D00FDD9C3 /* ILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A3126A4512D00FDD9C3 /* ILogger.swift */; };
-		871D5A3726A4518500FDD9C3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A3626A4518500FDD9C3 /* Model.swift */; };
-		871D5A3C26A4526B00FDD9C3 /* PrintLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A3B26A4526B00FDD9C3 /* PrintLogger.swift */; };
-		871D5A4726A4555C00FDD9C3 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A4626A4555C00FDD9C3 /* Mock.generated.swift */; };
-		871D5A4C26A4556C00FDD9C3 /* GeneratedMockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A4B26A4556C00FDD9C3 /* GeneratedMockModelTests.swift */; };
-		871D5A7C26A467F400FDD9C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A7B26A467F400FDD9C3 /* Button.swift */; };
 		871D5A8A26A4F3E400FDD9C3 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A8926A4F3E400FDD9C3 /* SettingsViewModel.swift */; };
 		871D5A9026A4F58800FDD9C3 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A8F26A4F58800FDD9C3 /* SettingsViewModelTests.swift */; };
 		87344B0126A58A51002C2269 /* IAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344B0026A58A51002C2269 /* IAccountService.swift */; };
@@ -57,14 +50,7 @@
 		871D5A0226A44DF200FDD9C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		871D5A0426A44DF200FDD9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871D5A0926A44DF200FDD9C3 /* TestingPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestingPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		871D5A0D26A44DF200FDD9C3 /* ManualMockModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMockModelTests.swift; sourceTree = "<group>"; };
 		871D5A0F26A44DF200FDD9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		871D5A3126A4512D00FDD9C3 /* ILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILogger.swift; sourceTree = "<group>"; };
-		871D5A3626A4518500FDD9C3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		871D5A3B26A4526B00FDD9C3 /* PrintLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintLogger.swift; sourceTree = "<group>"; };
-		871D5A4626A4555C00FDD9C3 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
-		871D5A4B26A4556C00FDD9C3 /* GeneratedMockModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMockModelTests.swift; sourceTree = "<group>"; };
-		871D5A7B26A467F400FDD9C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		871D5A8926A4F3E400FDD9C3 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		871D5A8F26A4F58800FDD9C3 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
 		87344B0026A58A51002C2269 /* IAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAccountService.swift; sourceTree = "<group>"; };
@@ -122,8 +108,6 @@
 				871D59FF26A44DF200FDD9C3 /* Assets.xcassets */,
 				871D5A0126A44DF200FDD9C3 /* LaunchScreen.storyboard */,
 				871D5A0426A44DF200FDD9C3 /* Info.plist */,
-				87344AF126A58A18002C2269 /* Mock */,
-				871D5A7B26A467F400FDD9C3 /* Button.swift */,
 				87344AFC26A58A3D002C2269 /* Stub */,
 			);
 			path = TestingPlayground;
@@ -132,23 +116,10 @@
 		871D5A0C26A44DF200FDD9C3 /* TestingPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				871D5A4626A4555C00FDD9C3 /* Mock.generated.swift */,
-				871D5A0D26A44DF200FDD9C3 /* ManualMockModelTests.swift */,
 				871D5A0F26A44DF200FDD9C3 /* Info.plist */,
-				871D5A4B26A4556C00FDD9C3 /* GeneratedMockModelTests.swift */,
 				871D5A8F26A4F58800FDD9C3 /* SettingsViewModelTests.swift */,
 			);
 			path = TestingPlaygroundTests;
-			sourceTree = "<group>";
-		};
-		87344AF126A58A18002C2269 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				871D5A3B26A4526B00FDD9C3 /* PrintLogger.swift */,
-				871D5A3126A4512D00FDD9C3 /* ILogger.swift */,
-				871D5A3626A4518500FDD9C3 /* Model.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		87344AFC26A58A3D002C2269 /* Stub */ = {
@@ -215,7 +186,6 @@
 				871D5A0526A44DF200FDD9C3 /* Sources */,
 				871D5A0626A44DF200FDD9C3 /* Frameworks */,
 				871D5A0726A44DF200FDD9C3 /* Resources */,
-				E62863C4A4DF0B492D745116 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,23 +299,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E62863C4A4DF0B492D745116 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,12 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				87344B0126A58A51002C2269 /* IAccountService.swift in Sources */,
-				871D5A7C26A467F400FDD9C3 /* Button.swift in Sources */,
 				871D5A8A26A4F3E400FDD9C3 /* SettingsViewModel.swift in Sources */,
-				871D5A3726A4518500FDD9C3 /* Model.swift in Sources */,
 				871D59FB26A44DEF00FDD9C3 /* ViewController.swift in Sources */,
-				871D5A3226A4512D00FDD9C3 /* ILogger.swift in Sources */,
-				871D5A3C26A4526B00FDD9C3 /* PrintLogger.swift in Sources */,
 				871D59F726A44DEF00FDD9C3 /* AppDelegate.swift in Sources */,
 				871D59F926A44DEF00FDD9C3 /* SceneDelegate.swift in Sources */,
 			);
@@ -369,9 +318,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				871D5A4726A4555C00FDD9C3 /* Mock.generated.swift in Sources */,
-				871D5A4C26A4556C00FDD9C3 /* GeneratedMockModelTests.swift in Sources */,
-				871D5A0E26A44DF200FDD9C3 /* ManualMockModelTests.swift in Sources */,
 				871D5A9026A4F58800FDD9C3 /* SettingsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

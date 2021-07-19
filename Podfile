@@ -10,6 +10,5 @@ target 'TestingPlayground' do
   target 'TestingPlaygroundTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'SwiftyMocky'
   end
 end
