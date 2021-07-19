@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftyMocky
-import TestingPlayground
+@testable import TestingPlayground
 
 class GeneratedMockModelTests: XCTestCase {
 

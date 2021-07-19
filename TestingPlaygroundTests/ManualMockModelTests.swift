@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import TestingPlayground
+@testable import TestingPlayground
 
 class ManualLoggerMock: ILogger {
     var logInvoked: Int = 0

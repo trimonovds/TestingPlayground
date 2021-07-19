@@ -7,13 +7,13 @@
 
 import Foundation
 
-public enum LogScope {
+enum LogScope {
     case info
     case debug
     case error
 }
 
 //sourcery: AutoMockable
-public protocol ILogger {
+protocol ILogger {
     func log(_ message: String, scope: LogScope)
 }

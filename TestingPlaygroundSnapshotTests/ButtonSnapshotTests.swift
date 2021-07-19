@@ -15,7 +15,7 @@ class ButtonSnapshotTests: XCTestCase {
     func testButtonDefaultState() {
         let button = Button(frame: frame)
         button.setTitle("Login", for: .normal)
-        let result = verifySnapshot(matching: button, as: .image, named: "Default", testName: "Button")
+        let result = verifySnapshot(matching: button, as: .image, named: "Default", record: false, testName: "Button")
         XCTAssertNil(result)
     }
     
@@ -23,7 +23,7 @@ class ButtonSnapshotTests: XCTestCase {
         let button = Button(frame: frame)
         button.setTitle("Login", for: .normal)
         button.isLoading = true
-        let result = verifySnapshot(matching: button, as: .image, named: "Loading", testName: "Button")
+        let result = verifySnapshot(matching: button, as: .image, named: "Loading", record: false, testName: "Button")
         XCTAssertNil(result)
     }
 }
