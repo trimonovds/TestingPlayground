@@ -7,18 +7,4 @@ target 'TestingPlayground' do
 
   # Pods for TestingPlayground
 
-  target 'TestingPlaygroundTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'SwiftyMocky'
-  end
-  
-  target 'TestingPlaygroundSnapshotTests' do
-    pod 'SnapshotTesting'
-  end
-
-  target 'TestingPlaygroundUITests' do
-    # Pods for testing
-  end
-
 end
