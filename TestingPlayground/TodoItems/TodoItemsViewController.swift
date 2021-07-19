@@ -16,24 +16,39 @@ class TodoItemsViewController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 8
         stack.alignment = .center
-        [addButton, removeButton, itemsCountLabel].forEach {
+        [itemTextInputField, addButton, removeButton, itemsCountLabel].forEach {
             stack.addArrangedSubview($0)
         }
+        itemTextInputField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -64),
             stack.leftAnchor.constraint(equalTo: view.leftAnchor),
             stack.rightAnchor.constraint(equalTo: view.rightAnchor),
+            itemTextInputField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            itemTextInputField.heightAnchor.constraint(equalToConstant: 36)
         ])
         
         token = model.addListener(self)
         updateUI()
+        updateButtonsAvailability()
     }
     
     deinit {
         model.removeListener(token: token)
     }
+    
+    private lazy var itemTextInputField: TextField = {
+        let res = TextField()
+        res.textColor = UIColor.black
+        res.attributedPlaceholder = NSAttributedString(string: "Input item text", attributes: [.foregroundColor: UIColor.black.withAlphaComponent(0.5)])
+        res.backgroundColor = UIColor.white
+        res.accessibilityIdentifier = AccessibilityIdentifiers.StartScreen.itemTextInputField
+        res.addTarget(self, action: #selector(onTextFieldEditingChanged), for: .editingChanged)
+        res.layer.cornerRadius = 4
+        return res
+    }()
     
     private lazy var itemsCountLabel: UILabel = {
         let res = UILabel()
@@ -66,6 +81,7 @@ class TodoItemsViewController: UIViewController {
     
     private func setupButton(_ button: UIButton) {
         button.setTitleColor(.darkText, for: .normal)
+        button.setTitleColor(UIColor.darkText.withAlphaComponent(0.5), for: .disabled)
         button.contentEdgeInsets = .init(top: 8, left: 16, bottom: 8, right: 16)
         button.layer.cornerRadius = 4
         button.backgroundColor = .yellow
@@ -87,11 +103,55 @@ extension TodoItemsViewController {
         itemsCountLabel.text = "\(model.itemsCount)"
     }
     
+    private func updateButtonsAvailability() {
+        addButton.isEnabled = !itemTextInputField.text.isNilOrEmpty
+        removeButton.isEnabled = model.itemsCount > 0
+    }
+    
+    private func finishItemAddition() {
+        itemTextInputField.text = ""
+        updateButtonsAvailability()
+        view.endEditing(true)
+    }
+    
+    @objc private func onTextFieldEditingChanged() {
+        updateButtonsAvailability()
+    }
+    
     @objc private func onAddButtonTouchUpInside() {
-        model.addItem(text: "Item \(model.itemsCount)")
+        model.addItem(text: itemTextInputField.text!)
+        finishItemAddition()
     }
     
     @objc private func onRemoveButtonTouchUpInside() {
         model.removeAll()
+    }
+}
+
+extension Optional where Wrapped == String {
+    var isNilOrEmpty: Bool {
+        switch self {
+        case .none:
+            return true
+        case .some(let txt):
+            return txt.isEmpty
+        }
+    }
+}
+
+class TextField: UITextField {
+
+    let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
     }
 }

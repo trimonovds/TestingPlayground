@@ -16,18 +16,15 @@ class TodoItemsUITests: XCTestCase {
         app.launch()
     }
 
-    func testWhenAddItemItemsCountTestIs1() throws {
-        app.buttons[AccessibilityIdentifiers.StartScreen.addButton].tap()
-        XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel].exists)
-        XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel].label == "1")
+    func testWhenTypeSomeTextAndAddItemThenVisibleTextIs1() throws {
+        
     }
     
-    func testWhenAddSomeItemsAndRemoveAllYouCanSeeZero() throws {
-        let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
-        addButton.tap()
-        addButton.tap()
-        app.buttons[AccessibilityIdentifiers.StartScreen.removeButton].tap()
-        XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel].label == "0")
+    func testWhenTypeSomeTextAndClearThenAddItemButtonIsDisabled() {
+        
     }
     
+    func testWhenTypeSomeTextThenAddItemButtonIsEnabled() {
+        
+    }
 }
