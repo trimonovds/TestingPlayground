@@ -18,13 +18,8 @@
 		871D5A0E26A44DF200FDD9C3 /* ManualMockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A0D26A44DF200FDD9C3 /* ManualMockModelTests.swift */; };
 		871D5A3226A4512D00FDD9C3 /* ILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A3126A4512D00FDD9C3 /* ILogger.swift */; };
 		871D5A3726A4518500FDD9C3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A3626A4518500FDD9C3 /* Model.swift */; };
-		871D5A3C26A4526B00FDD9C3 /* PrintLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A3B26A4526B00FDD9C3 /* PrintLogger.swift */; };
 		871D5A4726A4555C00FDD9C3 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A4626A4555C00FDD9C3 /* Mock.generated.swift */; };
 		871D5A4C26A4556C00FDD9C3 /* GeneratedMockModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A4B26A4556C00FDD9C3 /* GeneratedMockModelTests.swift */; };
-		871D5A7C26A467F400FDD9C3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A7B26A467F400FDD9C3 /* Button.swift */; };
-		871D5A8A26A4F3E400FDD9C3 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A8926A4F3E400FDD9C3 /* SettingsViewModel.swift */; };
-		871D5A9026A4F58800FDD9C3 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D5A8F26A4F58800FDD9C3 /* SettingsViewModelTests.swift */; };
-		87344B0126A58A51002C2269 /* IAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344B0026A58A51002C2269 /* IAccountService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,13 +56,8 @@
 		871D5A0F26A44DF200FDD9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871D5A3126A4512D00FDD9C3 /* ILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILogger.swift; sourceTree = "<group>"; };
 		871D5A3626A4518500FDD9C3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		871D5A3B26A4526B00FDD9C3 /* PrintLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintLogger.swift; sourceTree = "<group>"; };
 		871D5A4626A4555C00FDD9C3 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		871D5A4B26A4556C00FDD9C3 /* GeneratedMockModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMockModelTests.swift; sourceTree = "<group>"; };
-		871D5A7B26A467F400FDD9C3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		871D5A8926A4F3E400FDD9C3 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		871D5A8F26A4F58800FDD9C3 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
-		87344B0026A58A51002C2269 /* IAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAccountService.swift; sourceTree = "<group>"; };
 		CD81317480A1C3EDB3FD9E60 /* Pods-TestingPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground.release.xcconfig"; path = "Target Support Files/Pods-TestingPlayground/Pods-TestingPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		D1F723B600AE082E41129BCD /* Pods_TestingPlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingPlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,8 +113,6 @@
 				871D5A0126A44DF200FDD9C3 /* LaunchScreen.storyboard */,
 				871D5A0426A44DF200FDD9C3 /* Info.plist */,
 				87344AF126A58A18002C2269 /* Mock */,
-				871D5A7B26A467F400FDD9C3 /* Button.swift */,
-				87344AFC26A58A3D002C2269 /* Stub */,
 			);
 			path = TestingPlayground;
 			sourceTree = "<group>";
@@ -136,7 +124,6 @@
 				871D5A0D26A44DF200FDD9C3 /* ManualMockModelTests.swift */,
 				871D5A0F26A44DF200FDD9C3 /* Info.plist */,
 				871D5A4B26A4556C00FDD9C3 /* GeneratedMockModelTests.swift */,
-				871D5A8F26A4F58800FDD9C3 /* SettingsViewModelTests.swift */,
 			);
 			path = TestingPlaygroundTests;
 			sourceTree = "<group>";
@@ -144,20 +131,10 @@
 		87344AF126A58A18002C2269 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				871D5A3B26A4526B00FDD9C3 /* PrintLogger.swift */,
 				871D5A3126A4512D00FDD9C3 /* ILogger.swift */,
 				871D5A3626A4518500FDD9C3 /* Model.swift */,
 			);
 			path = Mock;
-			sourceTree = "<group>";
-		};
-		87344AFC26A58A3D002C2269 /* Stub */ = {
-			isa = PBXGroup;
-			children = (
-				871D5A8926A4F3E400FDD9C3 /* SettingsViewModel.swift */,
-				87344B0026A58A51002C2269 /* IAccountService.swift */,
-			);
-			path = Stub;
 			sourceTree = "<group>";
 		};
 		987B7891876E34A3EE477A8A /* Frameworks */ = {
@@ -353,13 +330,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87344B0126A58A51002C2269 /* IAccountService.swift in Sources */,
-				871D5A7C26A467F400FDD9C3 /* Button.swift in Sources */,
-				871D5A8A26A4F3E400FDD9C3 /* SettingsViewModel.swift in Sources */,
 				871D5A3726A4518500FDD9C3 /* Model.swift in Sources */,
 				871D59FB26A44DEF00FDD9C3 /* ViewController.swift in Sources */,
 				871D5A3226A4512D00FDD9C3 /* ILogger.swift in Sources */,
-				871D5A3C26A4526B00FDD9C3 /* PrintLogger.swift in Sources */,
 				871D59F726A44DEF00FDD9C3 /* AppDelegate.swift in Sources */,
 				871D59F926A44DEF00FDD9C3 /* SceneDelegate.swift in Sources */,
 			);
@@ -372,7 +345,6 @@
 				871D5A4726A4555C00FDD9C3 /* Mock.generated.swift in Sources */,
 				871D5A4C26A4556C00FDD9C3 /* GeneratedMockModelTests.swift in Sources */,
 				871D5A0E26A44DF200FDD9C3 /* ManualMockModelTests.swift in Sources */,
-				871D5A9026A4F58800FDD9C3 /* SettingsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
