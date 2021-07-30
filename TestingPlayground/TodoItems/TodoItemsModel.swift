@@ -8,6 +8,7 @@
 import Foundation
 
 struct TodoItem {
+    let id: UUID
     let text: String
 }
 
@@ -18,20 +19,30 @@ public protocol TodoItemsModelListener {
 class TodoItemsModel {
     typealias Token = UUID
     
-    var itemsCount: Int {
-        return items.count
-    }
-    
-    var lastItem: TodoItem? {
-        return items.last
+    private(set) var items: [TodoItem] = [] {
+        didSet {
+            listeners.values.forEach { $0.onModelDidUpdateItems() }
+        }
     }
     
     func removeAll() {
         items.removeAll()
     }
     
-    func addItem(text: String) {
-        items.append(TodoItem(text: text))
+    func addItem(_ item: TodoItem) {
+        guard items.firstIndex(where: { $0.id == item.id }) == nil else {
+            assert(false)
+            return
+        }
+        items.append(item)
+    }
+    
+    func updateItem(_ item: TodoItem) {
+        guard let index = items.firstIndex(where: { $0.id == item.id }) else {
+            assert(false)
+            return
+        }
+        items[index] = item
     }
     
     public func addListener(_ listener: TodoItemsModelListener) -> Token {
@@ -45,10 +56,14 @@ class TodoItemsModel {
     }
     
     private var listeners: [Token: TodoItemsModelListener] = [:]
+}
+
+extension TodoItemsModel {
+    var itemsCount: Int {
+        return items.count
+    }
     
-    private var items: [TodoItem] = [] {
-        didSet {
-            listeners.values.forEach { $0.onModelDidUpdateItems() }
-        }
+    func addItem(text: String) {
+        addItem(TodoItem(id: UUID(), text: text))
     }
 }

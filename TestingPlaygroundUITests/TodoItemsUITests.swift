@@ -15,32 +15,44 @@ class TodoItemsUITests: XCTestCase {
         continueAfterFailure = false
         app.launch()
     }
-
-    func testWhenTypeSomeTextAndAddItemThenVisibleTextIs1() throws {
-        let itemTextInput = app.textFields[AccessibilityIdentifiers.StartScreen.itemTextInputField]
-        let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
-        let itemsCountLabel = app.staticTexts[AccessibilityIdentifiers.StartScreen.itemsCountLabel]
-        itemTextInput.tap()
-        itemTextInput.typeText("Finish iOS course")
+    
+    func testWhenAddItemThenItemAppearsInTable() {
+        let addButton = app.buttons[AccessibilityIdentifiers.StartScreen.addItemButton]
         addButton.tap()
-        XCTAssertTrue(itemsCountLabel.label == "1")
-    }
-    
-    func testWhenTypeSomeTextAndClearThenAddItemButtonIsDisabled() {
-        let itemTextInput = app.textFields[AccessibilityIdentifiers.StartScreen.itemTextInputField]
-        let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
+        
+        let itemTextInput = app.textFields[AccessibilityIdentifiers.EditorScreen.inputTextField]
+        let inputText = "First Item"
         itemTextInput.tap()
-        let inputText = "Asdaasd"
         itemTextInput.typeText(inputText)
-        itemTextInput.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: inputText.count))
-        XCTAssertFalse(addButton.isEnabled)
+        
+        let saveButton: XCUIElement = app.buttons[AccessibilityIdentifiers.EditorScreen.saveButton]
+        saveButton.tap()
+        
+        let table = app.tables[AccessibilityIdentifiers.StartScreen.tableView]
+        XCTAssertTrue(table.cells.element(boundBy: 0).label.contains(inputText))
     }
     
-    func testWhenTypeSomeTextThenAddItemButtonIsEnabled() {
-        let itemTextInput = app.textFields[AccessibilityIdentifiers.StartScreen.itemTextInputField]
-        let addButton: XCUIElement = app.buttons[AccessibilityIdentifiers.StartScreen.addButton]
+    func testScenario1() {
+        let addButton = app.buttons[AccessibilityIdentifiers.StartScreen.addItemButton]
+        addButton.tap()
+        
+        let itemTextInput = app.textFields[AccessibilityIdentifiers.EditorScreen.inputTextField]
+        let inputText = "First Item"
         itemTextInput.tap()
-        itemTextInput.typeText("Asdaasd")
-        XCTAssertTrue(addButton.isEnabled)
+        itemTextInput.typeText(inputText)
+        
+        let saveButton: XCUIElement = app.buttons[AccessibilityIdentifiers.EditorScreen.saveButton]
+        saveButton.tap()
+        
+        let table = app.tables[AccessibilityIdentifiers.StartScreen.tableView]
+        table.cells.element(boundBy: 0).tap()
+        
+        let editedText = "some text"
+        itemTextInput.tap()
+        itemTextInput.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: inputText.count))
+        itemTextInput.typeText(editedText)
+        saveButton.tap()
+        
+        XCTAssertTrue(table.cells.element(boundBy: 0).label.contains(editedText))
     }
 }

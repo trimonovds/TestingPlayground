@@ -9,9 +9,11 @@ import Foundation
 
 enum AccessibilityIdentifiers {
     enum StartScreen {
-        static let addButton = "add_button"
-        static let removeButton = "remove_button"
-        static let itemsCountLabel = "items_count_label"
-        static let itemTextInputField = "item_text_input_field"
+        static let tableView = "start_screen_table"
+        static let addItemButton = "start_screen_add_item_button"
+    }
+    enum EditorScreen {
+        static let inputTextField = "editor_input_text_field"
+        static let saveButton = "editor_save_button"
     }
 }

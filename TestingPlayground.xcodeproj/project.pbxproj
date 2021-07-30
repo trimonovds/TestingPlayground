@@ -18,6 +18,7 @@
 		87344AA826A57608002C2269 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344AA726A57608002C2269 /* AccessibilityIdentifiers.swift */; };
 		87344AAD26A5761F002C2269 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344AA726A57608002C2269 /* AccessibilityIdentifiers.swift */; };
 		87344AB326A5762D002C2269 /* TodoItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87344AB226A5762D002C2269 /* TodoItemsViewController.swift */; };
+		87BBEEDA26B43087008ED42D /* TodoItemEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BBEED926B43087008ED42D /* TodoItemEditorViewController.swift */; };
 		FFA54B652DE26ACD4023BBD8 /* Pods_TestingPlayground_TestingPlaygroundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 342EB01E743526BF1971436A /* Pods_TestingPlayground_TestingPlaygroundUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		87344A9C26A575B4002C2269 /* TodoItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsModel.swift; sourceTree = "<group>"; };
 		87344AA726A57608002C2269 /* AccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		87344AB226A5762D002C2269 /* TodoItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsViewController.swift; sourceTree = "<group>"; };
+		87BBEED926B43087008ED42D /* TodoItemEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemEditorViewController.swift; sourceTree = "<group>"; };
 		CD81317480A1C3EDB3FD9E60 /* Pods-TestingPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground.release.xcconfig"; path = "Target Support Files/Pods-TestingPlayground/Pods-TestingPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		D1F723B600AE082E41129BCD /* Pods_TestingPlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestingPlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				87344A9C26A575B4002C2269 /* TodoItemsModel.swift */,
 				87344AA726A57608002C2269 /* AccessibilityIdentifiers.swift */,
 				87344AB226A5762D002C2269 /* TodoItemsViewController.swift */,
+				87BBEED926B43087008ED42D /* TodoItemEditorViewController.swift */,
 			);
 			path = TodoItems;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			files = (
 				87344AB326A5762D002C2269 /* TodoItemsViewController.swift in Sources */,
 				87344A9D26A575B4002C2269 /* TodoItemsModel.swift in Sources */,
+				87BBEEDA26B43087008ED42D /* TodoItemEditorViewController.swift in Sources */,
 				87344AA826A57608002C2269 /* AccessibilityIdentifiers.swift in Sources */,
 				871D59F726A44DEF00FDD9C3 /* AppDelegate.swift in Sources */,
 				871D59F926A44DEF00FDD9C3 /* SceneDelegate.swift in Sources */,

@@ -7,151 +7,111 @@
 
 import UIKit
 
-class TodoItemsViewController: UIViewController {
+class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 8
-        stack.alignment = .center
-        [itemTextInputField, addButton, removeButton, itemsCountLabel].forEach {
-            stack.addArrangedSubview($0)
-        }
-        itemTextInputField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stack)
-        stack.translatesAutoresizingMaskIntoConstraints = false
+        tableView.accessibilityLabel = AccessibilityIdentifiers.StartScreen.tableView
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellRi)
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(addItemButton)
+        addItemButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -64),
-            stack.leftAnchor.constraint(equalTo: view.leftAnchor),
-            stack.rightAnchor.constraint(equalTo: view.rightAnchor),
-            itemTextInputField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            itemTextInputField.heightAnchor.constraint(equalToConstant: 36)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            addItemButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            addItemButton.widthAnchor.constraint(equalToConstant: Self.addButtonSize.width),
+            addItemButton.heightAnchor.constraint(equalToConstant: Self.addButtonSize.height),
+            addItemButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         token = model.addListener(self)
-        updateUI()
+        refresh()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.itemsCount
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editor = TodoItemEditorViewController()
+        editor.mode = .update(item: model.items[indexPath.row])
+        editor.delegate = self
+        present(editor, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellRi, for: indexPath)
+        let item = model.items[indexPath.row]
+        cell.textLabel?.text = item.text
+        cell.accessibilityLabel = item.text
+        return cell
     }
     
     deinit {
         model.removeListener(token: token)
     }
     
-    private lazy var itemTextInputField: TextField = {
-        let res = TextField()
-        res.textColor = UIColor.black
-        res.attributedPlaceholder = NSAttributedString(string: "Input item text", attributes: [.foregroundColor: UIColor.black.withAlphaComponent(0.5)])
-        res.backgroundColor = UIColor.white
-        res.accessibilityIdentifier = AccessibilityIdentifiers.StartScreen.itemTextInputField
-        res.addTarget(self, action: #selector(onTextFieldEditingChanged), for: .editingChanged)
-        res.layer.cornerRadius = 4
-        return res
-    }()
-    
-    private lazy var itemsCountLabel: UILabel = {
-        let res = UILabel()
-        res.accessibilityIdentifier = AccessibilityIdentifiers.StartScreen.itemsCountLabel
-        setupLabel(res)
-        return res
-    }()
-    
-    private lazy var addButton: UIButton = {
+    private lazy var addItemButton: UIButton = {
         let res = UIButton(type: .system)
-        res.accessibilityIdentifier = AccessibilityIdentifiers.StartScreen.addButton
-        res.setTitle("Add item", for: .normal)
-        setupButton(res)
+        res.accessibilityIdentifier = AccessibilityIdentifiers.StartScreen.addItemButton
+        res.setTitle("+", for: .normal)
+        res.setTitleColor(.white, for: .normal)
+        res.backgroundColor = .systemBlue
+        res.layer.cornerRadius = Self.addButtonSize.height / 2
         res.addTarget(self, action: #selector(onAddButtonTouchUpInside), for: .touchUpInside)
         return res
     }()
     
-    private lazy var removeButton: UIButton = {
-        let res = UIButton(type: .system)
-        res.accessibilityIdentifier = AccessibilityIdentifiers.StartScreen.removeButton
-        res.setTitle("Remove all items", for: .normal)
-        setupButton(res)
-        res.addTarget(self, action: #selector(onRemoveButtonTouchUpInside), for: .touchUpInside)
-        return res
-    }()
-    
-    private func setupLabel(_ label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 24)
-    }
-    
-    private func setupButton(_ button: UIButton) {
-        button.setTitleColor(.darkText, for: .normal)
-        button.setTitleColor(UIColor.darkText.withAlphaComponent(0.5), for: .disabled)
-        button.contentEdgeInsets = .init(top: 8, left: 16, bottom: 8, right: 16)
-        button.layer.cornerRadius = 4
-        button.backgroundColor = .yellow
-    }
-    
+    private let tableView = UITableView()
     private let model = TodoItemsModel()
     private var token: TodoItemsModel.Token!
+    
+    private static let cellRi = "Cell"
+    private static let addButtonSize = CGSize(width: 64, height: 64)
 }
 
 extension TodoItemsViewController: TodoItemsModelListener {
     func onModelDidUpdateItems() {
-        updateUI()
+        refresh()
+    }
+}
+
+extension TodoItemsViewController: TodoItemEditorViewControllerDelegate {
+    func editorDidFinish(_ editor: TodoItemEditorViewController, withResult result: TodoItemEditorViewController.Result) {
+        switch result {
+        case .created(let newItem):
+            model.addItem(newItem)
+        case .updated(let updatedItem):
+            model.updateItem(updatedItem)
+        }
+        editor.dismiss(animated: true, completion: nil)
     }
 }
 
 extension TodoItemsViewController {
-    
-    private func updateUI() {
-        itemsCountLabel.text = "\(model.itemsCount)"
-        updateButtonsAvailability()
-    }
-    
-    private func updateButtonsAvailability() {
-        addButton.isEnabled = !itemTextInputField.text.isNilOrEmpty
-        removeButton.isEnabled = model.itemsCount > 0
-    }
-    
-    private func resetEditing() {
-        itemTextInputField.text = ""
-        updateButtonsAvailability()
-        view.endEditing(true)
-    }
-    
-    @objc private func onTextFieldEditingChanged() {
-        updateButtonsAvailability()
+    private func refresh() {
+        tableView.reloadData()
     }
     
     @objc private func onAddButtonTouchUpInside() {
-        model.addItem(text: itemTextInputField.text!)
-        resetEditing()
-    }
-    
-    @objc private func onRemoveButtonTouchUpInside() {
-        model.removeAll()
+        let editor = TodoItemEditorViewController()
+        editor.mode = .create
+        editor.delegate = self
+        present(editor, animated: true, completion: nil)
     }
 }
 
-extension Optional where Wrapped == String {
-    var isNilOrEmpty: Bool {
-        switch self {
-        case .none:
-            return true
-        case .some(let txt):
-            return txt.isEmpty
-        }
-    }
-}
-
-class TextField: UITextField {
-
-    let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-}
