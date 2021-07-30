@@ -12,12 +12,13 @@ class TodoItemTableViewCell: UITableViewCell {
     struct ViewState {
         let title: String
         let image: UIImage
+        let titleNumOfLines: Int
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .red
+        contentView.backgroundColor = .lightGray
         
         [icon, title].forEach {
             contentView.addSubview($0)
@@ -34,17 +35,21 @@ class TodoItemTableViewCell: UITableViewCell {
         ])
         
         icon.setContentHuggingPriority(.required, for: .horizontal)
-    }
-    
-    func render(_ viewState: ViewState) {
-        self.title.text = viewState.title
-        self.icon.image = viewState.image
+        icon.setContentCompressionResistancePriority(.required, for: .horizontal)
+        title.setContentCompressionResistancePriority(.required, for: .vertical)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func render(_ viewState: ViewState) {
+        self.title.numberOfLines = viewState.titleNumOfLines
+        self.title.text = viewState.title
+        self.icon.image = viewState.image
+    }
+    
     private let icon = UIImageView()
     private let title = UILabel()
+    
 }
