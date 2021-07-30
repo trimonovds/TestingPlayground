@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7E9F1F96DC35062CE8C28159 /* Pods_TestingPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332E0B970D449ED6EC748721 /* Pods_TestingPlayground.framework */; };
+		870B93F026B3DB4100E7FDAB /* TodoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B93EF26B3DB4100E7FDAB /* TodoItemTableViewCell.swift */; };
+		870B93F426B3DC7000E7FDAB /* TodoItemTableViewCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B93F326B3DC7000E7FDAB /* TodoItemTableViewCellSnapshotTests.swift */; };
 		871D59F726A44DEF00FDD9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D59F626A44DEF00FDD9C3 /* AppDelegate.swift */; };
 		871D59F926A44DEF00FDD9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D59F826A44DEF00FDD9C3 /* SceneDelegate.swift */; };
 		871D59FB26A44DEF00FDD9C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D59FA26A44DEF00FDD9C3 /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 		577F4CFE63B9D3C1CF6041DB /* Pods-TestingPlayground-TestingPlaygroundSnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground-TestingPlaygroundSnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-TestingPlayground-TestingPlaygroundSnapshotTests/Pods-TestingPlayground-TestingPlaygroundSnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		625D0A48CFF9661D22BD82C4 /* Pods-TestingPlayground-TestingPlaygroundSnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground-TestingPlaygroundSnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-TestingPlayground-TestingPlaygroundSnapshotTests/Pods-TestingPlayground-TestingPlaygroundSnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E480476AB86B5DBE2EF0049 /* Pods-TestingPlayground-TestingPlaygroundUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground-TestingPlaygroundUITests.debug.xcconfig"; path = "Target Support Files/Pods-TestingPlayground-TestingPlaygroundUITests/Pods-TestingPlayground-TestingPlaygroundUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		870B93EF26B3DB4100E7FDAB /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
+		870B93F326B3DC7000E7FDAB /* TodoItemTableViewCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCellSnapshotTests.swift; sourceTree = "<group>"; };
 		871D59F326A44DEF00FDD9C3 /* TestingPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestingPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		871D59F626A44DEF00FDD9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		871D59F826A44DEF00FDD9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			children = (
 				871D5A6426A4677300FDD9C3 /* ButtonSnapshotTests.swift */,
 				871D5A6626A4677300FDD9C3 /* Info.plist */,
+				870B93F326B3DC7000E7FDAB /* TodoItemTableViewCellSnapshotTests.swift */,
 			);
 			path = TestingPlaygroundSnapshotTests;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				871D5A7B26A467F400FDD9C3 /* Button.swift */,
+				870B93EF26B3DB4100E7FDAB /* TodoItemTableViewCell.swift */,
 			);
 			path = Snapshots;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870B93F026B3DB4100E7FDAB /* TodoItemTableViewCell.swift in Sources */,
 				871D5A7C26A467F400FDD9C3 /* Button.swift in Sources */,
 				871D59FB26A44DEF00FDD9C3 /* ViewController.swift in Sources */,
 				871D59F726A44DEF00FDD9C3 /* AppDelegate.swift in Sources */,
@@ -332,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870B93F426B3DC7000E7FDAB /* TodoItemTableViewCellSnapshotTests.swift in Sources */,
 				871D5A6526A4677300FDD9C3 /* ButtonSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
